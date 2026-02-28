@@ -114,12 +114,23 @@
 
 @media (max-width: 991.98px) {
     .sticky-top.navbar-dark {
-        position: relative;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+        background: #000000 !important; /* Ensures the background is solid when scrolling */
+    }
+
+    /* Add padding to the body or next element to prevent content jump */
+    .navbar-dark + * {
+        margin-top: 60px; /* Adjust based on your mobile navbar height */
     }
 
     .navbar-dark .navbar-collapse {
         margin-top: 15px;
-        border-top: 1px solid rgba(0, 0, 0, 0.1)
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        max-height: 80vh; /* Optional: prevents menu from overflowing screen */
+        overflow-y: auto;
     }
 
     .navbar-dark .navbar-nav .nav-link,
